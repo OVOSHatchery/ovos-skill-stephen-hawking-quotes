@@ -19,6 +19,7 @@ class StephenHawkingSkill(MycroftSkill):
         'quote'))
     def handle_quote(self, message):
         utterance = self.dialog_renderer.render("quote", {})
+        self.log.info("speak: " + utterance)
         self.hawking_speak(utterance)
 
     @intent_handler(IntentBuilder("StephenHawkingBirth").require(
