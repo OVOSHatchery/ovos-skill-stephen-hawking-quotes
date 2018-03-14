@@ -8,7 +8,6 @@ Tribute to stephen hawking
  * "when was stephen hawking born"
  * "when did stephen hawking die"
  * "quote from stephen hawking"
- * "did stephen hawking believe in god"
 
 ## Credits
 JarbasAI
