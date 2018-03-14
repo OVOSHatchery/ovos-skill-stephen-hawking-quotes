@@ -1,1 +1,1 @@
-sudo apt-get install espeak
+apt-get install espeak
