@@ -8,6 +8,9 @@ class StephenHawkingSkill(MycroftSkill):
         MycroftSkill.__init__(self)
         self.espeak = ESpeak("english-us", "m1")
 
+    def initialize(self):
+        self.espeak.init(self.emitter)
+
     def hawking_speak(self, utterance):
         self.espeak.execute(utterance)
 
