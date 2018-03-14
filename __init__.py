@@ -6,7 +6,7 @@ from mycroft.tts.espeak_tts import ESpeak
 class StephenHawkingSkill(MycroftSkill):
     def __init__(self):
         MycroftSkill.__init__(self)
-        self.espeak = ESpeak(self.lang, "m1")
+        self.espeak = ESpeak("english-us", "m1")
 
     def hawking_speak(self, utterance):
         self.espeak.execute(utterance)
