@@ -8,11 +8,10 @@ dist=$(lsb_release -d |awk '{print$2}')
 #setting dependencies and package manager in relation to the distribution
 if [ "$dist"  == "Arch"  ]; then
     pm="pacman -S"
-    dependencies=( espeak )
 elif [ "$dist" ==  "Ubuntu" ] || [ "$dist" == "KDE" ] || [ "$dist" == "Debian" ]; then
     pm="apt install"
-    dependencies=( espeak )
 fi
+dependencies=( espeak )
 
 
 # installing dependencies
