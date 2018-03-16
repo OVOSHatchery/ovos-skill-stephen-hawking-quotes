@@ -37,4 +37,3 @@ class StephenHawkingSkill(MycroftSkill):
 
 def create_skill():
     return StephenHawkingSkill()
-

@@ -1,14 +1,16 @@
 ## Stephen Hawking
-Tribute to stephen hawking
+Tribute to Stephen Hawking
 
 ## Description
-"My goal is simple. It is a complete understanding of the universe, why it is as it is and why it exists at all." -Stephen Hawking, 1942 - 2018
+"My goal is simple. It is a complete understanding of the universe,
+why it is as it is and why it exists at all."
+
+  -- Stephen Hawking, 1942 - 2018
 
 ## Examples
- * "when was stephen hawking born"
- * "when did stephen hawking die"
- * "quote from stephen hawking"
+* "When was Stephen Hawking born?"
+* "When did Stephen Hawking die?"
+* "Quote from Stephen Hawking"
 
 ## Credits
 JarbasAI
-
