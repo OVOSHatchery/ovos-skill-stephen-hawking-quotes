@@ -1,4 +1,4 @@
-# The requirements.sh is an advanced mechanism an should rarely be needed.
+# The requirements.sh is an advanced mechanism and should rarely be needed.
 # Be aware that it won't run with root permissions and 'sudo' won't work
 # in most cases.
 
@@ -12,6 +12,11 @@ if [ "$dist"  == "Arch"  ]; then
 elif [ "$dist" ==  "Ubuntu" ] || [ "$dist" == "KDE" ] || [ "$dist" == "Debian" ]; then
     pm="apt install"
     dependencies=( espeak )
+elif [ "$dist" == "Raspbian" ]; then
+    # Can't do 'sudo' with standard MSM install on a Mark 1 or Picroft,
+    # use pkcon instead which doesn't need sudo
+    pkcon install espeak
+    exit
 fi
 
 
