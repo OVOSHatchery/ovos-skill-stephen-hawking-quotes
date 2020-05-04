@@ -5,11 +5,11 @@ from mycroft.tts.espeak_tts import ESpeak
 
 class StephenHawkingSkill(MycroftSkill):
     def __init__(self):
-        MycroftSkill.__init__(self)
-        self.espeak = ESpeak("en-uk", "m2")
+        super().__init__()
+        self.espeak = ESpeak("en-uk", {"voice": "m2"})
 
     def initialize(self):
-        self.espeak.init(self.emitter)
+        self.espeak.init(self.bus)
 
     def hawking_speak(self, utterance):
         self.espeak.execute(utterance)
