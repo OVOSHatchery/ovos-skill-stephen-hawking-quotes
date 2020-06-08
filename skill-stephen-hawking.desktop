@@ -1,0 +1,10 @@
+[Desktop Entry]
+Terminal=false
+Type=Application
+Name=StephenHawkingTribute
+Exec=mycroft-gui-app --hideTextInput --skill=skill-stephen-hawking.jarbasskills.home
+Icon=hawking.png
+Categories=VoiceApp
+StartupNotify=false
+X-DBUS-StartupType=None
+X-KDE-StartupNotify=false

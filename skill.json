@@ -1,0 +1,23 @@
+{
+  "name": "Stephen Hawking Tribute Skill",
+  "skillname": "skill-stephen-hawking",
+  "authorname": "JarbasSkills",
+  "foldername": "",
+  "url": "https://github.com/JarbasSkills/skill-stephen-hawking",
+  "branch": "master",
+  "desktopFile": true,
+  "warning": "",
+  "systemDeps": "false",
+  "platforms": [
+    "arm",
+    "arm64",
+    "i386",
+    "x86_64",
+    "ia64"
+  ],
+  "examples": [
+    "When was Stephen Hawking born?",
+    "When did Stephen Hawking die?",
+    "Quote from Stephen Hawking"
+  ]
+}
