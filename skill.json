@@ -7,7 +7,7 @@
   "branch": "master",
   "desktopFile": true,
   "warning": "",
-  "systemDeps": "false",
+  "systemDeps": "espeak",
   "platforms": [
     "arm",
     "arm64",
