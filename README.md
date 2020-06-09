@@ -1,4 +1,4 @@
-# <img src='./hawking.png' width='50' height='50' style='vertical-align:bottom'/> Stephen Hawking
+# <img src='./icon.png' width='50' height='50' style='vertical-align:bottom'/> Stephen Hawking
 Tribute to Stephen Hawking
 
 ## About
