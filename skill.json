@@ -5,9 +5,9 @@
   "foldername": "",
   "url": "https://github.com/JarbasSkills/skill-stephen-hawking",
   "branch": "master",
-  "desktopFile": true,
+  "desktopFile": false,
   "warning": "",
-  "systemDeps": "espeak",
+  "systemDeps": "true",
   "platforms": [
     "arm",
     "arm64",

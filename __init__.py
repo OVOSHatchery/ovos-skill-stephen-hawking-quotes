@@ -15,15 +15,6 @@ class StephenHawkingTributeSkill(MycroftSkill):
     def initialize(self):
         if self.espeak:
             self.espeak.init(self.bus)
-        self.add_event('skill-stephen-hawking.jarbasskills.home', self.homepage)
-
-    def homepage(self):
-        utterance = """"
-My goal is simple. It is a complete understanding of the universe, why it is as it is and why it exists at all."
-
--- Stephen Hawking, 1942 - 2018
-"""
-        self.gui.show_text(utterance)
 
     def hawking_speak(self, utterance):
         if self.espeak:
