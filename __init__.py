@@ -1,59 +1,55 @@
-from adapt.intent import IntentBuilder
-from mycroft import MycroftSkill, intent_handler
-from mycroft.tts.espeak_tts import ESpeak
 from os.path import join, dirname
+from tempfile import gettempdir
+
+from ovos_workshop.decorators import intent_handler
+from ovos_workshop.intents import IntentBuilder
+from ovos_workshop.skills import OVOSSkill
 
 
-class StephenHawkingTributeSkill(MycroftSkill):
-    def __init__(self):
-        super().__init__()
+class StephenHawkingTributeSkill(OVOSSkill):
+
+    def initialize(self):
         try:
-            self.espeak = ESpeak("en-uk", {"voice": "m1"})
+            from ovos_tts_plugin_espeakng import EspeakNGTTS
+            self.espeak = EspeakNGTTS()
+            self.espeak.init(self.bus)
         except:
             self.espeak = None
 
-    def initialize(self):
-        if self.espeak:
-            self.espeak.init(self.bus)
-
     def hawking_speak(self, utterance):
         if self.espeak:
-            self.espeak.execute(utterance)
+            tts, _ = self.espeak.get_tts(utterance, f"{gettempdir()}/hawk_{utterance[:6]}.wav")
+            self.play_audio(tts)
         else:
-            self.speak(utterance)
+            self.speak(utterance, wait=True)
 
-    @intent_handler(IntentBuilder("StephenHawkingQuote").require(
-        'StephenHawking').require(
-        'quote'))
+    @intent_handler(IntentBuilder("StephenHawkingQuote").
+                    require('StephenHawking').require('quote'))
     def handle_quote(self, message):
         utterance = self.dialog_renderer.render("quote", {})
         self.log.info("speak: " + utterance)
-        self.hawking_speak(utterance)
-
-        self.gui.clear()
         self.gui.show_image(join(dirname(__file__), "ui", "hawking.jpg"),
-                            caption=utterance, fill='PreserveAspectFit')
+                            caption=utterance,
+                            fill='PreserveAspectFit')
+        self.hawking_speak(utterance)
+        self.gui.release()
 
-
-    @intent_handler(IntentBuilder("StephenHawkingBirth").require(
-        'StephenHawking').require(
-        'birth'))
+    @intent_handler(IntentBuilder("StephenHawkingBirth").
+                    require('StephenHawking').require('birth'))
     def handle_birth(self, message):
         utterance = self.dialog_renderer.render("birth", {})
-        self.speak_dialog(utterance)
-        self.gui.clear()
         self.gui.show_image(join(dirname(__file__), "ui", "young_hawking.jpg"),
-                            caption=utterance, fill='PreserveAspectFit')
+                            caption=utterance,
+                            fill='PreserveAspectFit')
+        self.speak(utterance, wait=True)
+        self.gui.release()
 
-    @intent_handler(IntentBuilder("StephenHawkingDeath").require(
-        'StephenHawking').require(
-        'death'))
+    @intent_handler(IntentBuilder("StephenHawkingDeath").
+                    require('StephenHawking').require('death'))
     def handle_death(self, message):
         utterance = self.dialog_renderer.render("death", {})
-        self.speak_dialog(utterance)
-        self.gui.clear()
         self.gui.show_image(join(dirname(__file__), "ui", "hawking.jpg"),
-                            caption=utterance, fill='PreserveAspectFit')
-
-def create_skill():
-    return StephenHawkingTributeSkill()
+                            caption=utterance,
+                            fill='PreserveAspectFit')
+        self.speak(utterance, wait=True)
+        self.gui.release()
